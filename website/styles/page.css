@@ -1,0 +1,69 @@
+body {
+	background-color: #191919;
+	color: #c8c8c8
+}
+
+#Top {
+	text-align: center;
+	font-size: 10vw;
+}
+
+a {
+	text-decoration: none;
+	color: #cc0000;
+}
+a:hover {
+	background-color: #403a42
+}
+
+div.toc {
+	border: 1px solid #44434d;
+	padding: 5px;
+	background-color: #302d36;
+	width: 20vw;
+	text-align: center;
+}
+
+.code {
+	font-family: "SFMono-Regular",Menlo,Consolas,Monospace;
+	font-weight: 400;
+	background-color: #302d36;
+	border: 1px solid #44434d;
+}
+
+pre {
+	white-space: pre-wrap;
+}
+
+pre.largecode {
+	padding: 5px;
+	font-family: "SFMono-Regular",Menlo,Consolas,Monospace;
+	width: 90vw;
+	background-color: #302d36;
+	font-family: "SFMono-Regular",Menlo,Consolas,Monospace;
+	font-weight: 400;
+	border: 1px solid #44434d;
+}
+pre.largecode .value {
+	color: #b45f06;
+}
+pre.largecode .obj {
+	color: #38761d
+}
+pre.largecode .comment {
+	color: #6d6d6d;
+}
+
+div.yttwitchcontainer {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 56.25%;
+}
+iframe.yttwitchcontainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
