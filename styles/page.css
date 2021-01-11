@@ -53,3 +53,17 @@ pre.largecode .obj {
 pre.largecode .comment {
 	color: #6d6d6d;
 }
+
+div.yttwitchcontainer {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 56.25%;
+}
+iframe.yttwitchcontainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
