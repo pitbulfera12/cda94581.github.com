@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<script src="../../templates/navigation.js"></script>
+	<head>
+		<link rel="stylesheet" href="../../styles/page.css">
+	</head>
+	<body>
+		<!-- Navigation -->
+		<script>
+			writeNav(2);
+		</script>
+
+		<!-- Everything inside this is the main body -->
+		<div id="main">
+			<h1 id="Top">Minecraft Bedrock Custom Fogs | DIY Minecraft</h1>
+			<p id="back">&#60; <a href="../assets.html">Back to Assets</a></p>
+			<div class="toc">
+				<p>Contents</p>
+				<ol>
+					<li><a href="#Schema">Fogs Schema</a></li>
+					<li><a href="#Example">Fogs Example</a></li>
+				</ol>
+			</div>
+
+			<h2 id="Schema" style="text-align: center;">Fogs Schema</h2>
+			<p>Format: <span class="code">type name //comment</span><br />If item is optional, <span class="code">opt</span> will be placed in front<br />Although Minecraft is fine with it, Normal JSON does not support <span class="code">//</span> comments, and as such, files with them will be invalidated, and so I recommend you remove the comments<br />Commas are important, don't forget them. Schemas do not contain commas however, you'll need to add it yourself.<br />Sticking with only the distance object is typically enough, and volumetric is much more advanced. I've done my best to add comments in a comprehendible way.<br />An example is provided below using everything in the schema, as an example to help comprehend more.<br /><br />Schema</p>
+			<pre class="largecode">
+{
+	version <span class="value">"format_version"</span> <span class="comment">//The format version of the fog file, string. Latest is 1.16.100, use that</span>
+	object <span class="obj">"minecraft:fog_settings"</span> <span class="comment">//Contains all the fog settings</span>
+	{
+		object <span class="obj">"description"</span>
+		{
+			string <span class="value">"identifier"</span> <span class="comment">//A unique namespaced identifier, in the form namespace:identifier. Must include namespace</span>
+		}
+		opt object <span class="obj">"distance"</span> <span class="comment">//Fog settings based on distance, for different camera locations</span>
+		{
+			opt object <span class="obj">"air"</span> <span class="comment">//Fog settings when camera is in the air</span>
+			{
+				color <span class="value">"fog_color"</span> <span class="comment">//The color the fog will take on, hexadecimal code</span>
+				float <span class="value">"fog_start"</span> <span class="comment">//The place where the fog starts</span>
+				float <span class="value">"fog_end"</span> <span class="comment">//The place where the fog ends</span>
+				string <span class="value">"render_distance_type"</span> <span class="comment">//Determines how the fog_start and fog_end types are used, can either be render or fixed. Render will cause the fog start and end to be multiplied by the current user's render distance to determine start and end. Fixed is a set number of blocks</span>
+			}
+			opt object <span class="obj">"weather"</span> <span class="comment">//Fog settings when camera is in active precipitation, like rain or snow</span>
+			{
+				color <span class="value">"fog_color"</span> <span class="comment">//The color the fog will take on, hexadecimal code</span>
+				float <span class="value">"fog_start"</span><span class="comment">//The place where the fog starts</span>
+				float <span class="value">"fog_end"</span> <span class="comment">//The place where the fog ends</span>
+				string <span class="value">"render_distance_type"</span> <span class="comment">//Determines how the fog_start and fog_end types are used, can either be render or fixed. Render will cause the fog start and end to be multiplied by the current user's render distance to determine start and end. Fixed is a set number of blocks</span>
+			}
+			opt object <span class="obj">"water"</span> <span class="comment">//Fog settings when camera is in water</span>
+			{
+				color <span class="value">"fog_color"</span> <span class="comment">//The color the fog will take on, hexadecimal code</span>
+				float <span class="value">"fog_start"</span> <span class="comment">//The place where the fog starts</span>
+				float <span class="value">"fog_end"</span> <span class="comment">//The place where the fog ends</span>
+				string <span class="value">"render_distance_type"</span> <span class="comment">//Determines how the fog_start and fog_end types are used, can either be render or fixed. Render will cause the fog start and end to be multiplied by the current user's render distance to determine start and end. Fixed is a set number of blocks</span>
+			}
+			opt object <span class="obj">"lava"</span> <span class="comment">//Fog settings when camera is in lava</span>
+			{
+				color <span class="value">"fog_color"</span> <span class="comment">//The color the fog will take on, hexadecimal code</span>
+				float <span class="value">"fog_start"</span> <span class="comment">//The place where the fog starts</span>
+				float <span class="value">"fog_end"</span> <span class="comment">//The place where the fog ends</span>
+				string <span class="value">"render_distance_type"</span> <span class="comment">//Determines how the fog_start and fog_end types are used, can either be render or fixed. Render will cause the fog start and end to be multiplied by the current user's render distance to determine start and end. Fixed is a set number of blocks</span>
+			}
+			opt object <span class="obj">"lava_resistance"</span> <span class="comment">//Fog settings when camera is in lava and the player has a lava resistance effect applied, like Fire Resistance</span>
+			{
+				color <span class="value">"fog_color"</span> <span class="comment">//The color the fog will take on, hexadecimal code</span>
+				float <span class="value">"fog_start"</span> <span class="comment">//The place where the fog starts</span>
+				float <span class="value">"fog_end"</span> <span class="comment">//The place where the fog ends</span>
+				string <span class="value">"render_distance_type"</span> <span class="comment">//Determines how the fog_start and fog_end types are used, can either be render or fixed. Render will cause the fog start and end to be multiplied by the current user's render distance to determine start and end. Fixed is a set number of blocks</span>
+			}
+			opt object <span class="obj">"powder_snow"</span> <span class="comment">//Fog settings when camera is in a powder snow block</span>
+			{
+				color <span class="value">"fog_color"</span> <span class="comment">//The color the fog will take on, hexadecimal code</span>
+				float <span class="value">"fog_start"</span> <span class="comment">//The place where the fog starts</span>
+				float <span class="value">"fog_end"</span> <span class="comment">//The place where the fog ends</span>
+				string <span class="value">"render_distance_type"</span> <span class="comment">//Determines how the fog_start and fog_end types are used, can either be render or fixed. Render will cause the fog start and end to be multiplied by the current user's render distance to determine start and end. Fixed is a set number of blocks</span>
+			}
+		}
+		opt object <span class="obj">"volumetric"</span> <span class="comment">//Volumetric fog settings, currently requires Ray-Tracing enabled, more info can be found at https://www.game-debate.com/news/28294/what-do-volumetric-lighting-and-volumetric-fog-do-graphics-settings-explained. You may need to set a raytraced capability (I am unable to test due to lack of raytracing enabled gpus) in the manifest.json</span>
+		{
+			opt object <span class="obj">"density"</span> <span class="comment">//How dense the fog is</span>
+			{
+				opt object <span class="obj">"air"</span> <span class="comment">//Fog density values as light passes through air</span>
+				{
+					float <span class="value">"max_density"</span> <span class="comment">//The maximum amount of density that the fog will have, range from 0.000000 to 1.000000, inclusive</span>
+					float <span class="value">"max_density_height"</span> <span class="comment">//The height in blocks above the ground at which the fog will have reached maximum density, range from 0.000000 to 128.000000, inclusive</span>
+					float <span class="value">"zero_density_height"</span> <span class="comment">//The height in blocks above the ground at which the fog will be completely transparent, must be at least 1 block higher than the "max_density_height" value, range from 0.000000 to 128.000000, inclusive</span>
+					opt boolean <span class="value">"uniform"</span> <span class="comment">//If this is set to true, the density will be the same across all heights</span>
+				}
+				opt object <span class="obj">"water"</span> <span class="comment">//Fog density values as light passes through water</span>
+				{
+					float <span class="value">"max_density"</span> <span class="comment">//The maximum amount of density that the fog will have, range from 0.000000 to 1.000000, inclusive</span>
+					float <span class="value">"max_density_height"</span> <span class="comment">//The height in blocks above the ground at which the fog will have reached maximum density, range from 0.000000 to 128.000000, inclusive</span>
+					float <span class="value">"zero_density_height"</span> <span class="comment">//The height in blocks above the ground at which the fog will be completely transparent, must be at least 1 block higher than the "max_density_height" value, range from 0.000000 to 128.000000, inclusive</span>
+					opt boolean <span class="value">"uniform"</span> <span class="comment">//If this is set to true, the density will be the same across all heights</span>
+				}
+				opt object <span class="obj">"lava"</span> <span class="comment">//Fog density values as light passes through lava</span>
+				{
+					float <span class="value">"max_density"</span> <span class="comment">//The maximum amount of density that the fog will have, range from 0.000000 to 1.000000, inclusive</span>
+					float <span class="value">"max_density_height"</span> <span class="comment">//The height in blocks above the ground at which the fog will have reached maximum density, range from 0.000000 to 128.000000, inclusive</span>
+					float <span class="value">"zero_density_height"</span> <span class="comment">//The height in blocks above the ground at which the fog will be completely transparent, must be at least 1 block higher than the "max_density_height" value, range from 0.000000 to 128.000000, inclusive</span>
+					opt boolean <span class="value">"uniform"</span> <span class="comment">//If this is set to true, the density will be the same across all heights</span>
+				}
+				opt object <span class="obj">"lava_resistance"</span> <span class="comment">//Fog density values as light passes through lava and the player has a lava resistance effect applied, like Fire Resistance</span>
+				{
+					float <span class="value">"max_density"</span> <span class="comment">//The maximum amount of density that the fog will have, range from 0.000000 to 1.000000, inclusive</span>
+					float <span class="value">"max_density_height"</span> <span class="comment">//The height in blocks above the ground at which the fog will have reached maximum density, range from 0.000000 to 128.000000, inclusive</span>
+					float <span class="value">"zero_density_height"</span> <span class="comment">//The height in blocks above the ground at which the fog will be completely transparent, must be at least 1 block higher than the "max_density_height" value, range from 0.000000 to 128.000000, inclusive</span>
+					opt boolean <span class="value">"uniform"</span> <span class="comment">//If this is set to true, the density will be the same across all heights</span>
+				}
+			}
+			opt object <span class="obj">"media_coefficients"</span> <span class="comment">//Used to determine how light is dispersed and refracted through different blocks</span>
+			{
+				opt object <span class="obj">"air"</span> <span class="comment">//Light dispersing/refraction through air</span>
+				{
+					color <span class="value">"scattering"</span> <span class="comment">//How much of, will the RGB be scattered per block. Can either be an array of 3 multipliers, range 0.000000 to 1.000000 inclusive, or a hexadecimal code. See example for more information</span>
+					color <span class="value">"absorption"</span> <span class="comment">//How much of, will the RGB be absorbed per block, can either be an array of 3 multipliers, range 0.000000 to 1.000000 inclusive, or a hexadecimal code. See example for more information</span>
+				}
+				opt object <span class="obj">"water"</span> <span class="comment">//Light dispersing/refraction through water</span>
+				{
+					color <span class="value">"scattering"</span> <span class="comment">//How much of, will the RGB be scattered per block. Can either be an array of 3 multipliers, range 0.000000 to 1.000000 inclusive, or a hexadecimal code. See example for more information</span>
+					color <span class="value">"absorption"</span> <span class="comment">//How much of, will the RGB be absorbed per block, can either be an array of 3 multipliers, range 0.000000 to 1.000000 inclusive, or a hexadecimal code. See example for more information</span>
+				}
+				opt object <span class="obj">"cloud"</span> <span class="comment">//Light dispersing/refraction through clouds</span>
+				{
+					color <span class="value">"scattering"</span> <span class="comment">//How much of, will the RGB be scattered per block. Can either be an array of 3 multipliers, range 0.000000 to 1.000000 inclusive, or a hexadecimal code. See example for more information</span>
+					color <span class="value">"absorption"</span> <span class="comment">//How much of, will the RGB be absorbed per block, can either be an array of 3 multipliers, range 0.000000 to 1.000000 inclusive, or a hexadecimal code. See example for more information</span>
+				}
+			}
+		}
+	}
+}</pre>
+			<a href="#Top" style="text-decoration: none;">Jump to Top</a>
+
+			<h2 id="Example" style="text-align: center;">Fogs Example</h2>
+			<pre class="largecode">
+{
+	"format_version": "1.16.100",
+	"minecraft:fog_settings": {
+		"description": {
+			"identifier": "cdaexample:fog_example"
+		},
+		"distance": {
+			"air": {
+				"fog_color": "#ff00ff", //Magenta color
+				"fog_start": 0.5, //Halfway to the edge of the render distance
+				"fog_end": 1, //Edge of render distance, anything multiplied by 1 is itself
+				"render_distance_type": "render"
+			},
+			"weather": {
+				"fog_color": "#ffff00", //Yellow color
+				"fog_start": 23.000001, //Starts ~23 blocks away
+				"fog_end": 100, //Ends 100 blocks away
+				"render_distance_type": "fixed"
+			},
+			"water": {
+				"fog_color": "#00ffff", //Cyan
+				"fog_start": 0.23415,
+				"fog_end": 0.99,
+				"render_distance_type": "render"
+			},
+			"lava": {
+				"fog_color": "#ff0000", //Red
+				"fog_start": 3,
+				"fog_end": 518.295,
+				"render_distance_type": "fixed"
+			},
+			"lava_resistance": {
+				"fog_color": "#00ff00", //Green
+				"fog_start": 10.2,
+				"fog_end": 23.98,
+				"render_distance_type": "fixed"
+			},
+			"powder_snow": {
+				"fog_color": "#0000ff" //Blue
+				"fog_start": 0.0005,
+				"fog_end": 1,
+				"render_distance_type": "render"
+			}
+		},
+		"volumetric": { //Disclaimer: I do not have a raytracing capable GPU, so I cannot test and verify anything I post past this point, this is just my educated assumption
+			"density": {
+				"air": {
+					"max_density": 1, //1x opacity, basically
+					"max_density_height": 100.5, //Reaches max density 100.5 blocks above the ground
+					"zero_density_height": 105, //At 105 blocks above the ground, will be completely transparent
+					"uniform": false //Do not need to add this if the value is false, this means that density will not be the same across heights
+				},
+				"water": {
+					"max_density": 0.5, //Halfway transparent and halfway opaque
+					"max_density_height": 52,
+					"zero_density_height": 70,
+					"uniform": true //Will be same across heights
+				},
+				"lava": {
+					"max_density": 0.982175,
+					"max_density_height": 127, //Essentially max value, as zero_density_height must be at least 1 block higher
+					"zero_density_height": 128, //Max value
+				},
+				"lava_resistance": {
+					"max_density": 0.123,
+					"max_density_height": 0, //Min value
+					"zero_density_height": 1, //Essentially min value, as max_density_height must be at least 1 block lower
+					"uniform": true
+				}
+			},
+
+			"media_coefficients": {
+				"air": {
+					"scattering": [ 0.5, 1, 0.2 ], // 50% of red, 100% of green, and 20% of blue light, will be scattered, each block, can also use hexadecimal, as shown below
+					"absorption": "#7f64c8" //127/255 of red, 100/255 of green, and 200/255 of blue light, will be absorbed, each block. Can also use multipliers as shown above
+				},
+				"water": {
+					"scattering": [ 0.234, 0.123, 0.59821 ],
+					"absorption": [ 0.2135, 0.681, 0.829 ]
+				},
+				"cloud": {
+					"scattering": "#f8aad0",
+					"absorption": "#98afad"
+				}
+			}
+		}
+	}
+}</pre>
+<p>Definitely did not spam my keyboard to get the random numbers, no idea where I'm getting that thought from</p>
+			<a href="#Top" style="text-decoration: none;">Jump to Top</a>
+		</div>
+	</body>
+</html>
