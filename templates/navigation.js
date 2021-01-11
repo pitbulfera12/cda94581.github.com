@@ -6,7 +6,7 @@ function writeNav(levels) {
 				<script src="scripts/navigation.js"></script> \
 				<div class="navigation" id="navigation"> \
 					<a href="pages/javascript:void(0)" class="closeNavigation" onclick="closeNavigation()">&#215;</a> \
-					<a href="pages/home.html">Home</a> \
+					<a href="pages/home">Home</a> \
 					<a href="pages/about.html">About</a> \
 					<a href="pages/blasting_to_bedrock.html">Blasting to Bedrock</a> \
 					<a href="pages/downloads.html">Downloads</a> \
@@ -20,7 +20,7 @@ function writeNav(levels) {
 				<script src="../scripts/navigation.js"></script> \
 				<div class="navigation" id="navigation"> \
 					<a href="javascript:void(0)" class="closeNavigation" onclick="closeNavigation()">&#215;</a> \
-					<a href="home.html">Home</a> \
+					<a href="home">Home</a> \
 					<a href="about.html">About</a> \
 					<a href="blasting_to_bedrock.html">Blasting to Bedrock</a> \
 					<a href="downloads.html">Downloads</a> \
@@ -34,7 +34,7 @@ function writeNav(levels) {
 				<script src="../../scripts/navigation.js"></script> \
 				<div class="navigation" id="navigation"> \
 					<a href="javascript:void(0)" class="closeNavigation" onclick="closeNavigation()">&#215;</a> \
-					<a href="../home.html">Home</a> \
+					<a href="../home">Home</a> \
 					<a href="../about.html">About</a> \
 					<a href="../blasting_to_bedrock.html">Blasting to Bedrock</a> \
 					<a href="../downloads.html">Downloads</a> \
