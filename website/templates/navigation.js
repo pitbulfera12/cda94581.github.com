@@ -1,12 +1,9 @@
 function writeNav(levels) {
-	var pathBack;
-	switch (levels) {
-		case 1:
-			pathBack = "../";
-			break;
-		case 2:
-			pathBack = "../../";
-			break;
+	var pathBack = "";
+	var levelCount = 0;
+	while (levelCount < levels) {
+		pathBack += "../";
+		levelCount++;
 	}
 	document.write('\
 		<link rel="stylesheet" href="' + pathBack + '../styles/navigation.css"> \
