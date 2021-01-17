@@ -1,4 +1,4 @@
-function writeNav(levels) {
+function write(levels) {
 	var pathBack = "";
 	var levelCount = 0;
 	while (levelCount < levels) {
@@ -6,6 +6,8 @@ function writeNav(levels) {
 		levelCount++;
 	}
 	document.write('\
+		<link rel="stylesheet" href="' + pathBack + '../styles/page.css"> \
+		<link rel="shortcut icon" type="image/x-icon" href="' + pathBack + '../resources/favicon.ico"> \
 		<link rel="stylesheet" href="' + pathBack + '../styles/navigation.css"> \
 		<script src="' + pathBack + '../scripts/navigation.js"></script> \
 		<div class="navigation" id="navigation"> \
@@ -16,6 +18,7 @@ function writeNav(levels) {
 			<a href="' + pathBack + 'downloads">Downloads</a> \
 			<a href="' + pathBack + 'assets">Assets</a> \
 			<a href="' + pathBack + 'feedback">Feedback</a> \
+			<a href="' + pathBack + 'non_youtube-y_things">Non YouTube-y Things</a> \
 		</div> \
 		<a href="javascript:void(0)" onclick="openNavigation()" id="openNavigation">&#9776;</a> \
 	');
