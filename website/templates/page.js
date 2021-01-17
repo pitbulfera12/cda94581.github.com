@@ -1,4 +1,4 @@
-function write(levels) {
+function write(levels, pageTitle) {
 	var pathBack = "";
 	var levelCount = 0;
 	while (levelCount < levels) {
@@ -7,7 +7,7 @@ function write(levels) {
 	}
 	document.write('\
 		<link rel="stylesheet" href="' + pathBack + '../styles/page.css"> \
-		<link rel="shortcut icon" type="image/x-icon" href="' + pathBack + '../resources/favicon.ico"> \
+		<title>' + pageTitle + ' | cda94581\'s Website</title> \
 		<link rel="stylesheet" href="' + pathBack + '../styles/navigation.css"> \
 		<script src="' + pathBack + '../scripts/navigation.js"></script> \
 		<div class="navigation" id="navigation"> \
